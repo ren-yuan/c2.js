@@ -1,0 +1,21 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "removeComments": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6"
+    },
+
+    "typedocOptions": {
+        "disableSources": true,
+        "excludePrivate": true,
+        "hideGenerator": true,
+        "entryPoints": ["src/"],
+        "exclude": "src/main.ts",
+        "out": "website/docs",
+        "name": "c2.js",
+        "theme": "minimal",
+        "readme": "none"
+    }
+}
