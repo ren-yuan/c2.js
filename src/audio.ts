@@ -2,9 +2,12 @@
 
 
 let audioContext;
-if (typeof window !== 'undefined') {
-	window.AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-	audioContext = new AudioContext();
+
+function createAudioContext(){
+	if (typeof window !== 'undefined' && typeof audioContext === 'undefined') {
+		window.AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+		audioContext = new AudioContext();
+	}
 }
 
 
@@ -13,6 +16,7 @@ export class AudioIn{
 	node:MediaStreamAudioSourceNode;
 
 	constructor(callback:Function){
+		createAudioContext();
 		this.context = audioContext;
 		let constraints = {audio: true, video: false};
 		window.navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
@@ -37,6 +41,7 @@ export class Sound{
 	node:MediaElementAudioSourceNode;
 
 	constructor(url:string, callback:Function){
+		createAudioContext();
 		this.context = audioContext;
 		this.audio = new Audio(url);
 		this.audio.addEventListener('loadeddata', () => {
@@ -92,6 +97,7 @@ export class Analyser{
 	node:AnalyserNode;
 
 	constructor(){
+		createAudioContext();
 		this.context = audioContext;
 		this.node = audioContext.createAnalyser();
 	}
