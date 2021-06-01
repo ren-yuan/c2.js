@@ -3,12 +3,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Analyser = exports.Sound = exports.AudioIn = void 0;
 let audioContext;
-if (typeof window !== 'undefined') {
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    audioContext = new AudioContext();
+function createAudioContext() {
+    if (typeof window !== 'undefined' && typeof audioContext === 'undefined') {
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioContext = new AudioContext();
+    }
 }
 class AudioIn {
     constructor(callback) {
+        createAudioContext();
         this.context = audioContext;
         let constraints = { audio: true, video: false };
         window.navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
@@ -26,6 +29,7 @@ class AudioIn {
 exports.AudioIn = AudioIn;
 class Sound {
     constructor(url, callback) {
+        createAudioContext();
         this.context = audioContext;
         this.audio = new Audio(url);
         this.audio.addEventListener('loadeddata', () => {
@@ -67,6 +71,7 @@ class Sound {
 exports.Sound = Sound;
 class Analyser {
     constructor() {
+        createAudioContext();
         this.context = audioContext;
         this.node = audioContext.createAnalyser();
     }
