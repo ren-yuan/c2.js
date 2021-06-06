@@ -16,7 +16,7 @@ let col = 10;
 renderer.draw(() => {
     renderer.clear();
 
-    let time = renderer.frame * .01;
+    let time = renderer.frameCount * .01;
 
     renderer.stroke('#333333');
     renderer.lineWidth(1);

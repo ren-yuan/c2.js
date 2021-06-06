@@ -44,7 +44,7 @@ renderer.draw(() => {
     let n = 10;
     for(let i=0; i<n; i++){
       let x = c2.map(i, 0, n-1, 0, renderer.width);
-      let y = renderer.height - perlin.noise(i, renderer.frame * .01) * renderer.height/2;
+      let y = renderer.height - perlin.noise(i, renderer.frameCount * .01) * renderer.height/2;
       polygon.add(new c2.Point(x, y));
     }
     polygon.add(new c2.Point(renderer.width, renderer.height));

@@ -19,7 +19,7 @@ for(let i=0; i<data.length; i++){
 renderer.draw(() => {
     renderer.clear();
 
-    let time = renderer.frame * .01;
+    let time = renderer.frameCount * .01;
 
     for(let i=0; i<data.length; i++) data[i] = perlin.noise(i, time);
 
