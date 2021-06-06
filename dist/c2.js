@@ -3399,7 +3399,7 @@ exports.Color = exports.Renderer = void 0;
 const geometry_1 = require("./geometry");
 class Renderer {
     constructor(canvas) {
-        this.frame = 0;
+        this.frameCount = 0;
         this.mouse = { px: 0, py: 0, x: 0, y: 0, press: false, over: false, out: false, move: false, down: false, up: false, click: false, dblclick: false };
         this._loop = true;
         this._stroke = true;
@@ -3505,7 +3505,7 @@ class Renderer {
         this.mouse.up = false;
         this.mouse.click = false;
         this.mouse.dblclick = false;
-        this.frame++;
+        this.frameCount++;
         if (this._loop)
             window.requestAnimationFrame(this.animation.bind(this));
     }
