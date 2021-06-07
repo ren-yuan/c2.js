@@ -3076,8 +3076,9 @@ exports.Spring = Spring;
 class Force {
 }
 exports.Force = Force;
-class ConstForce {
+class ConstForce extends Force {
     constructor() {
+        super();
         if (arguments.length == 1) {
             this.force = arguments[0];
         }
