@@ -189,12 +189,13 @@ export abstract class Force {
     abstract apply(p: Particle);
 }
 
-export class ConstForce {
+export class ConstForce extends Force {
     force: Vector;
 
     constructor(v: Vector);
     constructor(x: number, y: number);
     constructor() {
+        super();
         if (arguments.length == 1) {
             this.force = arguments[0];
         } else if (arguments.length == 2) {
