@@ -13,6 +13,10 @@ export function fract(x: number): number {
     return x - Math.floor(x);
 }
 
+export function mod(value: number, dividend: number) {
+    return ((value % dividend) + dividend) % dividend;
+}
+
 export function clamp(value: number, min: number, max: number): number {
     return Math.max(min, Math.min(value, max));
 }
