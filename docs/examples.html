@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>c2.js</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/c2.min.js"></script>
+</head>
+
+<body>
+    <!--Navigation-->
+    <div class="container">
+        <div class="row">
+            <div class="col-2" style="padding:0;">
+                <nav class="nav">
+                    <a class="nav-link text-dark h2" href="index.html">c2.js</a>
+                </nav>
+            </div>
+            <div class="col-10" style="padding:0; margin-top:5px;">
+                <nav class="nav justify-content-end">
+                    <a class="nav-link text-dark" href="examples.html">examples</a>
+                    <a class="nav-link text-dark" href="reference.html">reference</a>
+                    <a class="nav-link text-dark" href="https://github.com/ren-yuan/c2.js">github</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--Canvas-->
+    <div class="container" style="margin-top:0px;">
+        <div class="row">
+            <div class="col-12" style="padding:0;">
+                <div><canvas id='c2' /></div>
+            </div>
+        </div>
+    </div>
+    <!--Examples-->
+    <div class="container" style="margin-top:20px;">
+        <div class="row">
+            <div class="col-12">
+                <h5>[Examples]</h5>
+                <p>Download the <a href="https://github.com/ren-yuan/c2.js">source code</a> of all c2.js examples.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-sm-4 col-md-3">
+                <ul class="list-unstyled">
+                    <li class="example" data-src="Perlin">Perlin</li>
+                    <li class="example" data-src="Point">Point</li>
+                    <li class="example" data-src="Line1">Line 1</li>
+                    <li class="example" data-src="Line2">Line 2</li>
+                    <li class="example" data-src="Circle">Circle</li>
+                    <li class="example" data-src="Triangle">Triangle</li>
+                    <li class="example" data-src="Rect1">Rect 1</li>
+                    <li class="example" data-src="Rect2">Rect 2</li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <ul class="list-unstyled">
+                    <li class="example" data-src="QuadTree">QuadTree</li>
+                    <li class="example" data-src="ConvexHull">ConvexHull</li>
+                    <li class="example" data-src="Delaunay">Delaunay</li>
+                    <li class="example" data-src="Voronoi">Voronoi</li>
+                    <li class="example" data-src="LimitedVoronoi1">LimitedVoronoi 1</li>
+                    <li class="example" data-src="LimitedVoronoi2">LimitedVoronoi 2</li>
+                    <li class="example" data-src="LimitedVoronoi3">LimitedVoronoi 3</li>
+                    <li class="example" data-src="LimitedVoronoi4">LimitedVoronoi 4</li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <ul class="list-unstyled">
+                    <li class="example" data-src="Spring">Spring</li>
+                    <li class="example" data-src="ConstForce">ConstForce</li>
+                    <li class="example" data-src="PointField">PointField</li>
+                    <li class="example" data-src="LineField">LineField</li>
+                    <li class="example" data-src="ArcField">ArcField</li>
+                    <li class="example" data-src="CircleConstraint">CircleConstraint</li>
+                    <li class="example" data-src="RectConstraint">RectConstraint</li>
+                    <li class="example" data-src="PolygonConstraint">PolygonConstraint</li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3">
+                <ul class="list-unstyled">
+                    <li class="example" data-src="Chromosome1">Chromosome 1</li>
+                    <li class="example" data-src="Chromosome2">Chromosome 2</li>
+                    <li class="example" data-src="Chromosome3">Chromosome 3</li>
+                    <li class="example" data-src="Chromosome4">Chromosome 4</li>
+                    <li class="example" data-src="NeuralNet">NeuralNet</li>
+                    <li class="example" data-src="Analyser">Analyser</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Copyright-->
+    <div class="container" style="margin-top:20px; margin-bottom:20px;">
+        <div class="row">
+            <div class="col-12">
+                <p class="footer">© Created by <a class="author" href="https://renyuan.io" target="_blank">Ren Yuan</a></p>
+            </div>
+        </div>
+    </div>
+    <!--Example Script-->
+    <script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var result = window.location.search.substr(1).match(reg);
+        if (result != null) {
+            return decodeURIComponent(result[2]);
+        } else {
+            return null;
+        }
+    }
+
+    let name = getQueryString("name");
+    if (name == null) name = "LimitedVoronoi2";
+
+    let example_script = document.createElement('script');
+    example_script.setAttribute("type", "text/javascript");
+    example_script.setAttribute("src", "examples/" + name + ".js");
+    document.querySelector("body").appendChild(example_script);
+
+    let examples = document.querySelectorAll(".example");
+    for (let i = 0; i < examples.length; i++) {
+        examples[i].addEventListener("click", function() {
+            var data = this.getAttribute("data-src");
+            window.location.href = window.location.origin + window.location.pathname + "?name=" + data;
+        }.bind(examples[i]));
+    }
+    </script>
+</body>
+
+</html>
