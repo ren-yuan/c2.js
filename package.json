@@ -2,7 +2,7 @@
   "name": "c2.js",
   "repository": "ren-yuan/c2.js",
   "version": "1.0.1",
-  "description": "JavasScript library for creative coding",
+  "description": "JavaScript library for creative coding",
   "main": "dist/c2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
