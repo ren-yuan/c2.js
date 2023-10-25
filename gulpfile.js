@@ -23,7 +23,7 @@ function compress() {
 
 function copy() {
     return gulp.src('dist/c2.min.js')
-    .pipe(gulp.dest('website/assets'));
+    .pipe(gulp.dest('docs/assets'));
 }
 
 exports.default = series(build, compress, copy);
