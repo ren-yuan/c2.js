@@ -13,7 +13,7 @@
         "hideGenerator": true,
         "entryPoints": ["src/"],
         "exclude": "src/main.ts",
-        "out": "website/docs",
+        "out": "docs/docs",
         "name": "c2.js",
         "theme": "minimal",
         "readme": "none"
