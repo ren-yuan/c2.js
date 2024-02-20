@@ -1,5 +1,5 @@
 //Created by Ren Yuan
-//c2js.org
+
 
 let perlin = new c2.Perlin();
 //perlin.detail(4, .5);

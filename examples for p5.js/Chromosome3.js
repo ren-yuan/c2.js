@@ -1,5 +1,5 @@
 //Created by Ren Yuan
-//c2js.org
+
 
 let hullColor;
 

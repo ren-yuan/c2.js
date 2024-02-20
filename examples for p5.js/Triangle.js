@@ -1,5 +1,5 @@
 //Created by Ren Yuan
-//c2js.org
+
 
 class Agent extends c2.Triangle{
     constructor(p1, p2, p3){

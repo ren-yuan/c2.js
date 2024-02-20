@@ -1,5 +1,5 @@
 //Created by Ren Yuan
-//c2js.org
+
 
 let target = [
     1,2, 3,2, 3,3, 2,3, 2,6, 3,6, 3,7, 1,7,

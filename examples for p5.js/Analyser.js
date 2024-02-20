@@ -1,5 +1,5 @@
 //Created by Ren Yuan
-//c2js.org
+
 
 let color1;
 let color2;

@@ -1,5 +1,5 @@
 //Created by Ren Yuan
-//c2js.org
+
 
 let data = new Array(30);
 let colors = [];
