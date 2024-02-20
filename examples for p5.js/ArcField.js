@@ -23,8 +23,8 @@ function setup() {
     let collision = new c2.Collision();
     world.addInteractionForce(collision);
 
-    let arc = new c2.Arc(width/2, height, width/2, PI, 2*PI);
-    let arcField = new c2.ArcField(arc, 1);
+    let arcShape = new c2.Arc(width/2, height, width/2, PI, 2*PI);
+    let arcField = new c2.ArcField(arcShape, 1);
     world.addForce(arcField);
 }
 
