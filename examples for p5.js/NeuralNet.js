@@ -32,6 +32,7 @@ function fitness(chromosome){
 function setup() {
     createCanvas(960, 540);
     colorMode(HSL, 100);
+    ellipseMode(RADIUS);
     textSize(12);
     textStyle(NORMAL);
     textAlign(LEFT, TOP);
